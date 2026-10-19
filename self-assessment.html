@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Computer Science Capstone Self-Assessment by Allison Hacko.">
+    <title>Self-Assessment | Allison Hacko</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="assessment-page">
+    <header class="hero">
+        <nav aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="index.html#projects">Projects</a>
+            <a href="self-assessment.html" aria-current="page">Self-Assessment</a>
+        </nav>
+
+        <p>COMPUTER SCIENCE CAPSTONE</p>
+        <h1>Self-Assessment</h1>
+        <p>What I learned, what I built, and where I want to go next.</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Looking Back on My Computer Science Journey</h2>
+            <p>
+                My computer science degree has taught me that getting code to run is
+                only one part of building useful software. I also need to understand
+                the problem I'm solving, choose an approach that makes sense, test my
+                work, and think about the people who will use or maintain it. My
+                coursework gave me experience with different languages, tools, and
+                types of applications. For my capstone, I brought several of those
+                skills together by revisiting projects, improving their implementation,
+                and documenting the decisions behind my changes.
+            </p>
+            <p>
+                I chose three projects that show different sides of my development
+                experience. HOP is an Android health and progress-tracking application
+                built with Java and SQLite. RETRO PC is a three-dimensional scene
+                created with C++ and OpenGL. Travlr is a travel application that
+                combines a website, a server-side API, a database, and an administrative
+                interface. Working across these projects challenged me to adjust my
+                approach to the problem instead of expecting one set of tools or
+                techniques to work for everything.
+            </p>
+        </section>
+
+        <section>
+            <h2>Software Design and Engineering</h2>
+            <p>
+                HOP gave me experience connecting an application's interface with
+                stored information. For my enhancement, I focused on input validation,
+                error handling, and unit tests for password-related functionality.
+                This work made me think more carefully about how an application should
+                respond when it receives invalid input or encounters a problem. It
+                also reinforced the value of keeping responsibilities organized so
+                that individual parts of a program are easier to understand and test.
+            </p>
+            <p>
+                Travlr challenged me to think about software as a collection of
+                connected parts. Its website, API routes, database models, and
+                authentication logic have to work together for the application to
+                behave correctly. I worked on protected endpoints and role-based
+                access checks so that administrative operations require the proper
+                permissions. These projects helped me move beyond thinking about
+                isolated features and pay more attention to how the overall design
+                affects reliability, maintainability, and the user experience.
+            </p>
+        </section>
+
+        <section>
+            <h2>Algorithms and Data Structures</h2>
+            <p>
+                RETRO PC gave me a practical way to apply algorithms and data
+                structures in a graphics program. In the enhanced version, I organized
+                scene objects in a collection and added a bounding-sphere visibility
+                check before drawing them. The program uses that geometric test to
+                determine whether an object may be outside the camera's view. I also
+                added a sprint option to make camera movement faster when exploring
+                the scene.
+            </p>
+            <p>
+                The visibility check helped me understand how an algorithm can affect
+                the work a program performs, while the object collection gave me a
+                more organized way to manage scene elements. However, I have not
+                measured a frame-rate improvement, so I would not claim that the
+                change made the program faster in practice. If I continued this
+                project, I would compare performance before and after the enhancement
+                and test the visibility logic from different camera positions. That
+                would give me better evidence of its benefits and help reveal any
+                limitations.
+            </p>
+        </section>
+
+        <section>
+            <h2>Databases and Secure Development</h2>
+            <p>
+                Working with SQLite in HOP and MongoDB in Travlr gave me experience
+                with different approaches to storing and retrieving application data.
+                I had to consider not only how information was saved, but also how
+                the application accessed it and what could go wrong when handling
+                user input or account information. These details matter because a
+                database feature can appear to work correctly while still needing
+                stronger validation or access controls.
+            </p>
+            <p>
+                Travlr helped me put authentication and authorization into practice.
+                Authentication checks a user's identity, while authorization
+                determines which actions that user can perform. I tested API requests
+                using different permission levels, including requests without a
+                token and attempts by a regular user to perform administrative
+                actions. Those checks helped verify that access restrictions were
+                enforced by the server rather than relying on what the website
+                displayed. HOP also gave me an opportunity to test password-related
+                functionality and improve defensive handling. Together, these
+                projects reinforced that security needs attention during design,
+                implementation, and testing, not just after the main features are
+                finished.
+            </p>
+        </section>
+
+        <section>
+            <h2>Testing, Problem-Solving, and Growth</h2>
+            <p>
+                A lot of development comes down to figuring out why something is not
+                behaving as expected. Across these projects, I worked through build
+                issues, checked API responses, and tested changes to application
+                logic and graphics behavior. I found it more manageable to break a
+                problem into smaller pieces, check one part at a time, and confirm
+                whether a change fixed the issue before moving on.
+            </p>
+            <p>
+                I also gained a better appreciation for the different purposes of
+                testing. Unit tests can check specific pieces of logic, API requests
+                can verify how an endpoint responds, and build checks can catch
+                compilation or configuration problems. Manual testing is still
+                useful for behavior that automated checks do not cover. I have more
+                to learn about expanding test coverage and measuring performance, but
+                I now have a stronger basis for deciding what needs to be tested and
+                using the results to guide my next steps.
+            </p>
+        </section>
+
+        <section>
+            <h2>Communication and Professional Development</h2>
+            <p>
+                Writing code is not enough if another person cannot understand how
+                to run it, review it, or make changes safely. Preparing these
+                projects for my portfolio has made documentation and organization
+                part of the development process rather than something to leave until
+                the end. Clear setup instructions, descriptions of important changes,
+                and explanations of technical choices help reviewers understand both
+                what a project does and why it was built that way.
+            </p>
+            <p>
+                I have also become more aware of the importance of explaining
+                technical information for different audiences. A developer may want
+                details about an algorithm or API response, while a nontechnical
+                reader may need to understand the purpose of a feature and its
+                practical value. Explaining tradeoffs and limitations honestly can
+                help people make better decisions about a solution. As I continue
+                developing professionally, I want to become more confident in
+                presenting my work, responding to feedback, and communicating
+                decisions in a way that supports collaboration.
+            </p>
+        </section>
+
+        <section>
+            <h2>My Next Steps</h2>
+            <p>
+                I want to keep building on what I learned through this program,
+                especially in full-stack development, secure application design,
+                automated testing, and independent software projects. My interests
+                also include game development, where programming and creative
+                problem-solving come together. The three projects in this portfolio
+                gave me opportunities to explore different areas, and I want to use
+                that experience as a starting point for more ambitious work.
+            </p>
+            <p>
+                There are specific things I would do in future versions of these
+                projects: expand automated tests, continue reviewing accessibility,
+                document design decisions consistently, and collect measurable
+                results before making claims about performance. Most importantly,
+                I have learned to treat development as an ongoing process. When
+                something does not work, I can investigate the problem, try a
+                reasonable solution, and use the results to decide what to do next.
+                I am finishing this degree with practical experience across several
+                areas of computer science and a clearer idea of where I want to
+                grow from here.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Allison Hacko | Computer Science ePortfolio</p>
+        <a href="index.html">Return to the portfolio homepage</a>
+    </footer>
+</body>
+</html>

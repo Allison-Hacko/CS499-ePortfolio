@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Base.Theme.HOP" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <item name="colorPrimary">@color/hop_primary</item>
+        <item name="colorOnPrimary">@color/hop_white</item>
+
+        <item name="colorSecondary">@color/hop_secondary</item>
+        <item name="colorOnSecondary">@color/hop_white</item>
+
+        <item name="android:colorAccent">@color/hop_primary</item>
+
+        <item name="android:windowBackground">@color/hop_background</item>
+
+    </style>
+
+    <style name="Theme.HOP" parent="Base.Theme.HOP" />
+
+</resources>

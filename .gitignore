@@ -1,0 +1,16 @@
+﻿assets/Code_Review.mp4
+.env
+**/.env
+node_modules/
+**/node_modules/
+**/.git/
+.gradle/
+**/.gradle/
+build/
+**/build/
+.idea/
+**/.idea/
+dist/
+**/dist/
+*.bak
+*.final-review-backup

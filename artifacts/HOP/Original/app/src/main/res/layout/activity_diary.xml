@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFEAF1"
+    android:orientation="vertical"
+    tools:context=".DiaryActivity">
+
+    <!-- Main scrolling content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <!-- Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textDiaryHeader"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="HOP"
+                    android:textColor="#352D30"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
+                <!-- Notification Bell -->
+                <TextView
+                    android:id="@+id/textDiaryNotifications"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="🔔"
+                    android:textSize="24sp"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <!-- Profile -->
+                <TextView
+                    android:id="@+id/textDiaryProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:text="👤"
+                    android:textSize="24sp"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+            </LinearLayout>
+
+            <!-- Page Title -->
+            <TextView
+                android:id="@+id/textDiaryTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="Daily Diary"
+                android:textColor="#352D30"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textDiarySubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Take a moment to check in with yourself."
+                android:textColor="#75686D"
+                android:textSize="14sp" />
+
+            <!-- Date Navigation -->
+            <LinearLayout
+                android:id="@+id/dateNavigation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="center_vertical"
+                android:background="@drawable/login_card"
+                android:orientation="horizontal"
+                android:padding="12dp">
+
+                <!-- Previous Day -->
+                <Button
+                    android:id="@+id/buttonPreviousDay"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:backgroundTint="#B85C7B"
+                    android:text="‹"
+                    android:textColor="#FFFFFF"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
+                <!-- Current Date -->
+                <TextView
+                    android:id="@+id/textDiaryDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="August 22, 2026"
+                    android:textColor="#352D30"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <!-- Next Day -->
+                <Button
+                    android:id="@+id/buttonNextDay"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:backgroundTint="#B85C7B"
+                    android:text="›"
+                    android:textColor="#FFFFFF"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!-- Diary Entry Card -->
+            <LinearLayout
+                android:id="@+id/diaryEntryCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/login_card"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TODAY'S ENTRY"
+                    android:textColor="#75686D"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/editDiaryEntry"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/input_background"
+                    android:gravity="top|start"
+                    android:hint="Write about your day, how you're feeling, your progress, or anything you'd like to remember..."
+                    android:inputType="textMultiLine|textCapSentences"
+                    android:padding="14dp"
+                    android:textColor="#352D30"
+                    android:textColorHint="#9B8B91" />
+
+            </LinearLayout>
+
+            <!-- Save Button -->
+            <Button
+                android:id="@+id/buttonSaveDiary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#D96F91"
+                android:text="SAVE DIARY ENTRY"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+            <!-- Status Message -->
+            <TextView
+                android:id="@+id/textDiaryStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:text=""
+                android:textColor="#75686D"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- Bottom Navigation -->
+    <include
+        layout="@layout/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="76dp" />
+
+</LinearLayout>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:id="@+id/main"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFEAF1"
+    android:fillViewport="true"
+    tools:context=".NotificationActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="28dp">
+
+        <!-- Header -->
+        <TextView
+            android:id="@+id/textNotificationTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Notifications"
+            android:textColor="#352D30"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textNotificationSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Stay on track with helpful goal reminders."
+            android:textColor="#75686D"
+            android:textSize="14sp" />
+
+        <!-- Bunny -->
+        <TextView
+            android:id="@+id/textNotificationBunny"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:text="🐰"
+            android:textSize="52sp" />
+
+        <!-- SMS Information Card -->
+        <LinearLayout
+            android:id="@+id/smsInfoCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/login_card"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SMS GOAL NOTIFICATIONS"
+                android:textColor="#75686D"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textSmsDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Receive a text message when you reach your goal weight."
+                android:textColor="#352D30"
+                android:textSize="16sp" />
+
+            <!-- Notification Status -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="SMS Notifications"
+                    android:textColor="#352D30"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <Switch
+                    android:id="@+id/switchSmsNotifications"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Phone Number Card -->
+        <LinearLayout
+            android:id="@+id/phoneCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/login_card"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PHONE NUMBER"
+                android:textColor="#75686D"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/input_background"
+                android:hint="Enter phone number"
+                android:inputType="phone"
+                android:minHeight="56dp"
+                android:padding="14dp"
+                android:textColor="#352D30"
+                android:textColorHint="#9B8B91" />
+
+        </LinearLayout>
+
+        <!-- Permission Button -->
+        <Button
+            android:id="@+id/buttonEnableSms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="#D96F91"
+            android:text="ENABLE SMS NOTIFICATIONS"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold" />
+
+        <!-- Permission Explanation -->
+        <TextView
+            android:id="@+id/textPermissionInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:gravity="center"
+            android:text="HOP will ask for permission before sending SMS notifications. You can continue using the app if permission is denied."
+            android:textColor="#75686D"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+</ScrollView>

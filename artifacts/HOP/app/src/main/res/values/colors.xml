@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="hop_background">#FFF7F9</color>
+    <color name="hop_primary">#C96F8A</color>
+    <color name="hop_primary_dark">#9F506A</color>
+    <color name="hop_secondary">#A97887</color>
+    <color name="hop_text">#332C2F</color>
+    <color name="hop_white">#FFFFFF</color>
+</resources>

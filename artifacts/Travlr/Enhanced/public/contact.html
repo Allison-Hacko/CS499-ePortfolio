@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Contact Travlr Getaways."><title>Contact | Travlr Getaways</title><link rel="stylesheet" href="/stylesheets/getaway-pages.css">    <link rel="stylesheet" href="/stylesheets/coastal-theme.css">
+</head>
+<body class="gh-page">
+<header class="gh-header">
+  <a class="gh-brand" href="/" aria-label="Travlr Getaways home">
+    <img src="/images/logo.png" alt="Travlr Getaways" width="200">
+  </a>
+  <nav class="gh-nav" aria-label="Main navigation">
+    <a href="/">Home</a>
+    <a href="/travel">Travel</a>
+    <a href="/rooms.html">Rooms</a>
+    <a href="/meals.html">Meals</a>
+    <a href="/news.html">News</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+  </nav>
+</header>
+<main class="gp-main">
+  <section class="gp-hero"><span class="gh-kicker">LET'S CONNECT</span><h1>Have a question?</h1><p>Use the form below to prepare your message or browse our travel pages for more information.</p></section>
+  <section class="gp-section"><h2>Send us a message</h2>
+    <form id="contact-demo-form">
+      <div><label for="contact-name">Your name</label><input id="contact-name" name="name" type="text" autocomplete="name" required maxlength="100"></div>
+      <div><label for="contact-email">Email address</label><input id="contact-email" name="email" type="email" autocomplete="email" required></div>
+      <div><label for="contact-subject">Subject</label><input id="contact-subject" name="subject" type="text" required maxlength="150"></div>
+      <div><label for="contact-message">Message</label><textarea id="contact-message" name="message" required maxlength="3000"></textarea></div>
+      <button type="submit">Prepare message</button>
+      
+    </form>
+  </section>
+  <section class="gp-section"><h2>Explore while you're here</h2><p>Browse available trips, learn about room options, or read travel tips to help prepare for your getaway.</p><a class="gp-button" href="/travel">Explore Getaways</a></section>
+</main>
+<footer class="gp-footer">
+  <nav aria-label="Footer navigation">
+    <a href="/">Home</a><a href="/travel">Explore trips</a>
+    <a href="/rooms.html">Rooms</a><a href="/meals.html">Meals</a>
+    <a href="/news.html">Travel news</a><a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+  </nav>
+  <p>Travlr Getaways · Find your horizon.</p>
+</footer>
+<script>
+document.getElementById("contact-demo-form").addEventListener("submit", function (event) {
+  event.preventDefault();
+  const name = document.getElementById("contact-name").value.trim();
+  const response = document.getElementById("contact-response");
+  if (!name) {
+    response.textContent = "Please enter your name.";
+    return;
+  }
+  response.textContent = "Your message is filled out and ready to copy, but this demo site does not send messages. Please use a configured contact email or server endpoint to submit it.";
+});
+</script>
+</body></html>

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RETRO PC Artifact Narrative | CS499</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <nav><a href="index.html">← Return to the ePortfolio</a></nav>
+</header>
+<main class="assessment-page">
+  <p class="eyebrow">ARTIFACT NARRATIVE / 02</p>
+  <h1>RETRO PC: Computational Graphics</h1>
+  <p class="section-intro">Algorithms, data structures, rendering, and design trade-offs.</p>
+
+  <h2>Original Artifact</h2>
+  <p>The original RETRO PC project was developed in C++ using OpenGL and GLU for a 3D night-time desk scene featuring a retro computer and surrounding objects. It also included camera movement and scene-rendering logic. I chose this project because it combines programming with visual results and provides a concrete way to evaluate how data structures and algorithms organize and display a scene.</p>
+
+  <h2>Enhancement and Rationale</h2>
+  <p>The enhanced version introduces a collection of scene objects using <code>std::vector</code>, with each object associated with rendering information. Rather than treating every visible scene element as an unrelated drawing operation, the application can iterate over registered objects. I also added a bounding-sphere visibility check that uses the camera's view-frustum planes to determine whether an object's bounds may intersect the viewing area. The camera controls were extended with a sprint movement option.</p>
+  <p>The visibility pass processes the registered objects in sequence. With <em>n</em> objects, the overall pass is O(n), assuming a fixed number of frustum-plane checks per object. The collection also requires O(n) storage. This is a straightforward approach for a small scene and makes the rendering process easier to organize, though more advanced spatial partitioning could be more appropriate for much larger scenes.</p>
+
+  <h2>Testing and Results</h2>
+  <p>I built and launched the enhanced application and checked the scene and camera controls, including movement. The visibility logic and object-registration structure were reviewed as part of the enhancement. I did not establish a measured frame-rate improvement, so I do not claim a specific performance gain. A controlled benchmark with visibility culling enabled and disabled would be needed to quantify that benefit.</p>
+
+  <h2>Challenges and Trade-Offs</h2>
+  <p>Visibility checks depend on reasonable object bounds. Incorrect bounding spheres could cause an object to disappear when it should be visible or remain in the rendering pass when it is not. The current linear pass is simple and maintainable, but its work increases with the number of registered objects. The enhancement prioritizes a clearer scene architecture and a basis for culling rather than claiming that this small scene requires a complex optimization system.</p>
+
+  <h2>Course Outcome Connections</h2>
+  <ul>
+    <li><strong>Outcome 2:</strong> The source organization and narrative explain the rendering changes and their limitations.</li>
+    <li><strong>Outcome 3:</strong> The vector-based object registry and visibility algorithm demonstrate algorithmic reasoning, complexity analysis, and trade-offs.</li>
+    <li><strong>Outcome 4:</strong> C++, OpenGL, and graphics-development tools were used to implement and verify an interactive 3D scene.</li>
+  </ul>
+
+  <h2>Reflection</h2>
+  <p>This enhancement helped me connect data structures and algorithm analysis to a visual computing problem. It also reinforced that an optimization should be evaluated with evidence. My next improvement would be to measure rendering performance across different scene sizes and validate object bounds more systematically.</p>
+
+  <p class="text-link"><a href="artifacts/RETRO%20PC/README.md">RETRO PC documentation ↗</a></p>
+  <p class="text-link"><a href="artifacts/RETRO%20PC/Original/main.cpp">View original source ↗</a></p>
+  <p class="text-link"><a href="artifacts/RETRO%20PC/Enhanced/main.cpp">View enhanced source ↗</a></p>
+</main>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Base.Theme.HOP" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Sakura Night background -->
+        <item name="android:windowBackground">#211A1E</item>
+        <item name="android:colorBackground">#211A1E</item>
+
+        <!-- Main HOP colors -->
+        <item name="colorPrimary">#D47A98</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+
+        <!-- Secondary accent -->
+        <item name="colorSecondary">#B96D88</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+
+        <!-- Surface/card colors -->
+        <item name="colorSurface">#30252A</item>
+        <item name="colorOnSurface">#F8EDEF</item>
+
+        <!-- General text -->
+        <item name="android:textColorPrimary">#F8EDEF</item>
+        <item name="android:textColorSecondary">#CDBBC1</item>
+
+        <!-- Status/navigation bars -->
+        <item name="android:statusBarColor">#211A1E</item>
+        <item name="android:navigationBarColor">#211A1E</item>
+
+        <!-- Light icons/text on dark system bars -->
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+    </style>
+
+    <style name="Theme.HOP" parent="Base.Theme.HOP" />
+
+</resources>

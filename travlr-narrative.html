@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travlr Artifact Narrative | CS499</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <nav><a href="index.html">← Return to the ePortfolio</a></nav>
+</header>
+<main class="assessment-page">
+  <p class="eyebrow">ARTIFACT NARRATIVE / 03</p>
+  <h1>Travlr: Full-Stack Travel Application</h1>
+  <p class="section-intro">Database integration, API design, authentication, and authorization.</p>
+
+  <h2>Original Artifact</h2>
+  <p>Travlr is a full-stack travel application built with a web front end, a Node.js and Express server, and MongoDB data storage. The original coursework established the foundation for retrieving and managing trip information through API routes. I chose this project for the database category because it connects data modeling and persistence to a working application instead of treating database code as an isolated exercise.</p>
+
+  <h2>Enhancement and Rationale</h2>
+  <p>The enhanced project expands the administrative and API functionality and adds authentication and authorization checks. User registration and login support authenticated access, while JSON Web Tokens are used to represent an authenticated session. Protected trip operations require a valid token, and administrative changes additionally require the appropriate role. The enhancement also adds booking-related API operations, including creating and viewing bookings and requesting cancellation.</p>
+  <p>The database layer uses Mongoose models to represent application data. Password handling uses salted PBKDF2 hashing, and password comparisons use a timing-safe comparison. These controls help reduce the risk of exposing password data and prevent ordinary authenticated users from automatically receiving administrative privileges. Authentication establishes who a user is; authorization determines which actions that user may perform.</p>
+
+  <h2>Testing and Results</h2>
+  <p>API checks verified trip retrieval, registration, and login, along with protected trip operations. Requests without a token were rejected, a regular user was denied an administrative operation, and an administrator was able to create, update, and delete a trip. These checks demonstrate the expected behavior for the tested routes. They do not replace a complete security review or exhaustive testing of every booking and user-management scenario.</p>
+
+  <h2>Challenges and Trade-Offs</h2>
+  <p>Adding authentication requires the application to handle tokens and authorization rules consistently across routes. Role checks add a second layer beyond login, but they must be applied to every sensitive operation to be effective. JWTs also require careful expiration and secret management. Configuration secrets should remain outside source control, and the example environment file should contain placeholders rather than real credentials.</p>
+  <p>MongoDB and Mongoose make document-oriented data modeling flexible, but the application still needs clear validation and consistent handling of invalid identifiers or missing records. More integration tests, validation of booking edge cases, and deployment-specific security checks would strengthen the application further.</p>
+
+  <h2>Course Outcome Connections</h2>
+  <ul>
+    <li><strong>Outcome 2:</strong> API documentation, setup guidance, and this narrative explain the system to technical reviewers.</li>
+    <li><strong>Outcome 3:</strong> The application applies structured request handling and role-based decision logic to solve access-control problems.</li>
+    <li><strong>Outcome 4:</strong> Node.js, Express, MongoDB, Mongoose, Angular, and API testing tools are combined into a full-stack solution.</li>
+    <li><strong>Outcome 5:</strong> Password hashing, token validation, protected routes, and role checks demonstrate a security-focused approach.</li>
+  </ul>
+
+  <h2>Reflection</h2>
+  <p>Travlr helped me understand how database operations, API design, and security decisions affect one another. A route can work correctly for a legitimate user and still be unsafe if it does not check authorization. Testing both successful requests and denied requests made that distinction clearer. My next steps would include broader automated integration tests, additional booking validation, and a review of production deployment settings.</p>
+
+  <p class="text-link"><a href="artifacts/Travlr/README.md">Travlr documentation ↗</a></p>
+  <p class="text-link"><a href="artifacts/Travlr/Travlr-Original.zip">Download original Travlr source ↗</a></p>
+  <p class="text-link"><a href="artifacts/Travlr/Travlr-Enhanced.zip">Download enhanced Travlr source ↗</a></p>
+  <p class="text-link"><a href="artifacts/Travlr/Travlr_API_Tests.postman_collection.json">API test collection ↗</a></p>
+</main>
+</body>
+</html>

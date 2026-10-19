@@ -1,0 +1,27 @@
+<section class="login-page">
+  <div class="login-panel">
+    <p class="eyebrow">TRAVLR ADMIN</p>
+    <h1>Welcome back</h1>
+    <p class="intro">Sign in to manage your travel listings.</p>
+
+    @if (errorMessage) {
+      <div class="error-message" role="alert">{{ errorMessage }}</div>
+    }
+
+    <form (ngSubmit)="submit()">
+      <label for="email">Email address</label>
+      <input id="email" type="email" name="email"
+        [(ngModel)]="email" required autocomplete="username" />
+
+      <label for="password">Password</label>
+      <input id="password" type="password" name="password"
+        [(ngModel)]="password" required autocomplete="current-password" />
+
+      <button type="submit" [disabled]="loading">
+        {{ loading ? 'Signing in...' : 'Sign In' }}
+      </button>
+    </form>
+
+    <a routerLink="/">Back to trip listings</a>
+  </div>
+</section>

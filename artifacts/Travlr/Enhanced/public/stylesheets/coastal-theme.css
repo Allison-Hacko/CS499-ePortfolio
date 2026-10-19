@@ -1,0 +1,86 @@
+﻿/* Travlr Getaways: dark coastal theme for secondary pages */
+html {
+    background: #071923 !important;
+    color-scheme: dark;
+}
+
+body {
+    background-color: #071923 !important;
+    color: #e5edf0 !important;
+}
+
+body, body p, body li, body label, body small {
+    color: #d4e0e5;
+}
+
+body h1, body h2, body h3, body h4, body h5, body h6,
+body strong, body b {
+    color: #f2f7f8 !important;
+}
+
+body header, body nav, body footer {
+    background-color: #0a202c !important;
+    color: #e5edf0 !important;
+}
+
+body a {
+    color: #75c9d0 !important;
+}
+
+body a:hover, body a:focus {
+    color: #b1eef0 !important;
+}
+
+body button, body input[type="submit"],
+body input[type="button"], body .button,
+body .btn {
+    background-color: #176875 !important;
+    color: #ffffff !important;
+    border: 1px solid #3d9da6 !important;
+    border-radius: 6px;
+}
+
+body input, body textarea, body select {
+    background-color: #102c39 !important;
+    color: #edf6f7 !important;
+    border: 1px solid #315260 !important;
+}
+
+body input::placeholder, body textarea::placeholder {
+    color: #a8bec7 !important;
+}
+
+body article, body .card, body .box, body .content-box,
+body .container-box, body .panel, body .gp-card {
+    background-color: #0c2532 !important;
+    color: #d4e0e5 !important;
+    border-color: #244451 !important;
+}
+
+body hr {
+    border-color: #294854 !important;
+}
+
+body table, body th, body td {
+    border-color: #294854 !important;
+}
+
+body th {
+    background-color: #123442 !important;
+    color: #f2f7f8 !important;
+}
+
+body td {
+    color: #d4e0e5 !important;
+}
+
+body img {
+    max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    body nav a {
+        display: inline-block;
+        margin: 4px;
+    }
+}

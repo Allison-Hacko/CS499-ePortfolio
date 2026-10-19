@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/travel.css">
+  <link rel="stylesheet" href="/stylesheets/trip-details.css">
+</head>
+<body>
+<div class="trip-page">
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Travlr Getaways home">
+      <span class="brand-mark">T</span>
+      <span class="brand-copy"><strong>TRAVLR</strong><small>GETAWAYS & EXPERIENCES</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a class="current" href="/travel">Explore</a>
+      <a href="/rooms">Rooms</a>
+      <a href="/meals">Dining</a>
+      <a href="/about">About</a>
+    </nav>
+    <a class="nav-account" href="/account.html">My account <span>↗</span></a>
+  </header>
+
+  <main>
+    <div class="detail-breadcrumb"><a href="/travel">← All getaways</a><span>/</span><span>{{trip.name}}</span></div>
+
+    <section class="detail-hero">
+      <img src="{{trip.imageUrl}}" alt="{{trip.name}} destination">
+      <div class="detail-hero-shade"></div>
+      <div class="detail-hero-content">
+        <span class="eyebrow"><span class="eyebrow-dot"></span> YOUR NEXT ESCAPE</span>
+        <h1>{{trip.name}}</h1>
+        <p class="detail-resort">⌖ {{trip.resort}}</p>
+      </div>
+      <div class="detail-hero-code">TRIP NO. {{trip.code}}</div>
+    </section>
+
+    <section class="detail-layout">
+      <div class="detail-main">
+        <span class="eyebrow eyebrow-dark">A LITTLE ABOUT YOUR GETAWAY</span>
+        <h2>Leave room for wonder<span class="accent-period">.</span></h2>
+        <p class="detail-description">{{trip.description}}</p>
+
+        <div class="detail-highlights">
+          <div class="highlight">
+            <span class="highlight-icon">◷</span>
+            <div><small>DURATION</small><strong>{{trip.length}}</strong></div>
+          </div>
+          <div class="highlight">
+            <span class="highlight-icon">⌖</span>
+            <div><small>DESTINATION</small><strong>{{trip.resort}}</strong></div>
+          </div>
+          <div class="highlight">
+            <span class="highlight-icon">☼</span>
+            <div><small>DEPARTURE</small><strong>{{trip.startDate}}</strong></div>
+          </div>
+        </div>
+
+        <div class="detail-note">
+          <span>✳</span>
+          <div><strong>Make it your own.</strong><p>Choose how many people are traveling, then reserve your getaway. Your reservation details will be available in My Itinerary.</p></div>
+        </div>
+      </div>
+
+      <aside class="booking-card">
+        <span class="eyebrow eyebrow-dark">YOUR GETAWAY STARTS HERE</span>
+        <p class="booking-price-label">Starting from</p>
+        <div class="booking-price">{{trip.perPerson}} <span>/ person</span></div>
+        <div class="booking-divider"></div>
+
+        <form id="booking-form">
+          <input type="hidden" id="trip-code" value="{{trip.code}}">
+          <label for="travelers">NUMBER OF TRAVELERS</label>
+          <select id="travelers" name="travelers" required>
+            <option value="1">1 traveler</option>
+            <option value="2">2 travelers</option>
+            <option value="3">3 travelers</option>
+            <option value="4">4 travelers</option>
+            <option value="5">5 travelers</option>
+            <option value="6">6 travelers</option>
+            <option value="7">7 travelers</option>
+            <option value="8">8 travelers</option>
+            <option value="9">9 travelers</option>
+            <option value="10">10 travelers</option>
+          </select>
+          <button class="button button-dark booking-button" type="submit">Reserve this getaway <span>↗</span></button>
+        </form>
+
+        <p id="booking-message" class="booking-message" role="status" aria-live="polite"></p>
+        <p class="booking-reassurance">✳ Your reservation will be saved to your account.</p>
+        <div class="booking-divider"></div>
+        <a class="itinerary-link" href="/itinerary.html">Already booked? View your itinerary →</a>
+      </aside>
+    </section>
+
+    <section class="detail-bottom">
+      <span class="eyebrow">YOUR NEXT CHAPTER</span>
+      <h2>There's more out there.</h2>
+      <a class="button button-light" href="/travel">Explore all getaways <span>↗</span></a>
+    </section>
+  </main>
+
+  <footer class="travel-footer">
+    <a class="brand brand-footer" href="/"><span class="brand-mark">T</span><span class="brand-copy"><strong>TRAVLR</strong><small>GETAWAYS & EXPERIENCES</small></span></a>
+    <p>Find your somewhere.</p>
+    <div class="footer-links"><a href="/travel">Explore</a><a href="/account.html">My account</a><a href="/itinerary.html">My itinerary</a><a href="/contact">Contact</a></div>
+    <small>© 2026 Travlr Getaways</small>
+  </footer>
+</div>
+
+<script>
+(function () {
+  const form = document.getElementById('booking-form');
+  const message = document.getElementById('booking-message');
+
+  form.addEventListener('submit', async function (event) {
+    event.preventDefault();
+
+    const token = localStorage.getItem('travlrToken');
+    if (!token) {
+      message.textContent = 'Please sign in or create an account before reserving. ';
+      const link = document.createElement('a');
+      link.href = '/account.html';
+      link.textContent = 'Go to account →';
+      message.appendChild(link);
+      return;
+    }
+
+    message.textContent = 'Creating your reservation...';
+
+    try {
+      const response = await fetch('/api/bookings', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + token
+        },
+        body: JSON.stringify({
+          tripCode: document.getElementById('trip-code').value,
+          travelers: Number(document.getElementById('travelers').value)
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        if (response.status === 401 || response.status === 403) {
+          localStorage.removeItem('travlrToken');
+          message.textContent = 'Your sign-in expired. Please sign in again.';
+        } else {
+          message.textContent = data.message || 'Could not create your reservation.';
+        }
+        return;
+      }
+
+      message.textContent = 'Reservation created! Total: ' +
+        new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: 'USD'
+        }).format(data.booking.totalPrice) +
+        '. Opening your itinerary...';
+
+      window.setTimeout(function () {
+        window.location.href = '/itinerary.html';
+      }, 1500);
+    } catch (error) {
+      message.textContent = 'Unable to reach the server. Please try again.';
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

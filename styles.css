@@ -1,0 +1,705 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap');
+
+:root {
+  --night: #100d0e;
+  --stone: #191314;
+  --stone-light: #21191a;
+  --wine: #641421;
+  --blood: #a52b3c;
+  --red-light: #d18b8b;
+  --ivory: #e9dfd0;
+  --silver: #bcb0a8;
+  --rule: #493035;
+  --max: 1080px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  background-color: var(--night);
+  background-image:
+    radial-gradient(ellipse at 50% 0%, #35151b 0%, transparent 55%);
+  color: var(--ivory);
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 14px;
+  line-height: 1.95;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 9px;
+  border: 1px solid #54252d;
+  pointer-events: none;
+  z-index: 20;
+}
+
+a { color: var(--red-light); }
+
+a:focus-visible {
+  outline: 2px solid var(--red-light);
+  outline-offset: 4px;
+}
+
+.wrap {
+  width: min(var(--max), calc(100% - 64px));
+  margin: auto;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #100d0ef2;
+  border-bottom: 1px solid var(--rule);
+}
+
+.nav {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  color: var(--ivory);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 25px;
+  letter-spacing: .13em;
+  text-decoration: none;
+}
+
+.brand span { color: var(--blood); }
+
+nav {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--silver);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  text-decoration: none;
+}
+
+nav a:hover { color: var(--red-light); }
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 115px 0 108px;
+  text-align: center;
+  border-bottom: 1px solid var(--rule);
+  background:
+    linear-gradient(180deg, #28131780, transparent 75%);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: min(390px, 76vw);
+  height: 460px;
+  top: 42px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid #6d343b65;
+  border-radius: 50% 50% 0 0 / 35% 35% 0 0;
+  box-shadow:
+    0 0 0 12px #100d0e,
+    0 0 0 13px #6d343b35,
+    inset 0 0 55px #6414211c;
+  pointer-events: none;
+}
+
+.hero::after {
+  content: "✦";
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--blood);
+  font-size: 17px;
+}
+
+.hero .wrap { position: relative; }
+
+.eyebrow {
+  color: var(--red-light);
+  font-size: 10px;
+  letter-spacing: .24em;
+  line-height: 1.8;
+  text-transform: uppercase;
+}
+
+h1, h2, h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+}
+
+h1 {
+  max-width: 850px;
+  margin: 25px auto;
+  font-size: clamp(55px, 8vw, 100px);
+  line-height: .98;
+  letter-spacing: -.035em;
+}
+
+h2 {
+  margin: 18px 0 24px;
+  font-size: clamp(37px, 5vw, 55px);
+  line-height: 1.05;
+}
+
+h3 {
+  margin-top: 12px;
+  font-size: 29px;
+  line-height: 1.1;
+}
+
+.lead {
+  max-width: 640px;
+  margin: 25px auto 0;
+  color: #c9bbb2;
+  font-size: 13px;
+  line-height: 2.1;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 17px;
+  border: 1px solid #77404a;
+  color: var(--ivory);
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background .2s ease, color .2s ease;
+}
+
+.btn.primary {
+  background: var(--wine);
+  border-color: var(--blood);
+}
+
+.btn:hover {
+  background: var(--blood);
+  color: white;
+}
+
+section { padding: 76px 0; }
+
+.section-intro {
+  max-width: 710px;
+  margin-top: -7px;
+  color: var(--silver);
+  font-size: 12px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.feature {
+  position: relative;
+  padding: 27px 30px;
+  border: 1px solid var(--rule);
+  background: #191314;
+}
+
+.feature::before {
+  content: "✦";
+  position: absolute;
+  top: -14px;
+  left: 20px;
+  padding: 0 8px;
+  background: var(--night);
+  color: var(--red-light);
+}
+
+.feature p, .muted { color: var(--silver); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 40px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.card {
+  min-width: 0;
+  padding: 28px 23px 32px;
+  background: transparent;
+  border: 0;
+  border-right: 1px solid var(--rule);
+  border-radius: 0;
+  box-shadow: none;
+  transition: background .2s ease;
+}
+
+.card:last-child { border-right: 0; }
+
+.card:hover { background: #25171a; }
+
+.number {
+  color: var(--red-light);
+  font-size: 10px;
+  letter-spacing: .18em;
+}
+
+.card h3 { margin-bottom: 17px; }
+
+.card p {
+  color: var(--silver);
+  font-size: 11px;
+  line-height: 2;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 20px 0;
+}
+
+.tag {
+  padding: 2px 7px;
+  border: 1px solid #51313a;
+  border-radius: 0;
+  color: #d4bcb8;
+  background: #211719;
+  font-size: 9px;
+}
+
+.text-link {
+  color: var(--red-light);
+  font-size: 10px;
+  letter-spacing: .035em;
+  text-decoration: none;
+}
+
+.text-link:hover {
+  color: #fff0e9;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.skill-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 18px;
+  padding: 0;
+  list-style: none;
+}
+
+.skill-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
+  color: #d7c9c0;
+  font-size: 11px;
+}
+
+.skill-list li::before {
+  content: "✧";
+  margin-right: 10px;
+  color: var(--blood);
+}
+
+footer {
+  padding: 34px 0 48px;
+  border-top: 1px solid var(--rule);
+  color: #a99a94;
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+@media (max-width: 760px) {
+  body::before { inset: 4px; }
+  .wrap { width: min(100% - 36px, var(--max)); }
+  .nav { padding: 14px 0; }
+  nav { gap: 13px; }
+  .hero { padding: 85px 0 80px; }
+  .hero::before { height: 390px; }
+  .grid, .about-grid { grid-template-columns: 1fr; }
+  .card {
+    border-right: 0;
+    border-bottom: 1px solid var(--rule);
+    padding: 28px 5px;
+  }
+  .card:last-child { border-bottom: 0; }
+  section { padding: 58px 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
+
+/* Gothic cathedral window treatment */
+.hero {
+    position: relative;
+    isolation: isolate;
+}
+
+.hero::before {
+    width: min(78vw, 620px);
+    height: 430px;
+    left: 50%;
+    top: 8px;
+    transform: translateX(-50%);
+    border: 2px solid #65202b;
+    border-bottom: 0;
+    border-radius: 48% 48% 0 0 / 28% 28% 0 0;
+    background:
+        linear-gradient(90deg,
+            transparent 48.8%,
+            rgba(101, 32, 43, .8) 49.4%,
+            rgba(101, 32, 43, .8) 50.6%,
+            transparent 51.2%),
+        linear-gradient(180deg,
+            transparent 35%,
+            rgba(101, 32, 43, .8) 35.4%,
+            rgba(101, 32, 43, .8) 36%,
+            transparent 36.4%),
+        linear-gradient(90deg,
+            transparent 24.5%,
+            rgba(101, 32, 43, .55) 24.9%,
+            rgba(101, 32, 43, .55) 25.5%,
+            transparent 25.9%,
+            transparent 74.1%,
+            rgba(101, 32, 43, .55) 74.5%,
+            rgba(101, 32, 43, .55) 75.1%,
+            transparent 75.5%),
+        radial-gradient(ellipse at 50% 15%,
+            rgba(105, 20, 35, .26),
+            rgba(8, 7, 9, .92) 72%);
+    box-shadow:
+        0 0 0 5px rgba(18, 13, 15, .9),
+        0 0 0 7px rgba(101, 32, 43, .45),
+        0 0 34px rgba(105, 20, 35, .13);
+    pointer-events: none;
+    z-index: -1;
+}
+
+@media (max-width: 600px) {
+    .hero::before {
+        width: 92vw;
+        height: 340px;
+    }
+}
+
+/* === ORNATE GOTHIC CATHEDRAL WINDOW === */
+.hero {
+    position: relative;
+    isolation: isolate;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    width: min(78vw, 620px);
+    height: 440px;
+    left: 50%;
+    top: 12px;
+    transform: translateX(-50%);
+    border: 2px solid #702330;
+    border-bottom: 0;
+    clip-path: polygon(
+        50% 0%, 53% 5%, 56% 10%, 61% 15%,
+        66% 22%, 70% 30%, 75% 42%, 80% 55%,
+        86% 70%, 92% 85%, 100% 100%,
+        0% 100%, 8% 85%, 14% 70%, 20% 55%,
+        25% 42%, 30% 30%, 34% 22%, 39% 15%,
+        44% 10%, 47% 5%
+    );
+    background:
+        linear-gradient(90deg,
+            transparent 23.8%, #69202b 24.2%, #69202b 24.8%, transparent 25.2%,
+            transparent 49.2%, #8a303b 49.7%, #8a303b 50.3%, transparent 50.8%,
+            transparent 74.8%, #69202b 75.2%, #69202b 75.8%, transparent 76.2%),
+        linear-gradient(180deg,
+            transparent 29.5%, #69202b 30%, #69202b 30.6%, transparent 31.1%,
+            transparent 55.5%, #69202b 56%, #69202b 56.6%, transparent 57.1%),
+        radial-gradient(ellipse at 50% 8%, rgba(130, 24, 43, .42), transparent 40%),
+        linear-gradient(135deg, rgba(90, 12, 26, .18), transparent 40%, rgba(90, 12, 26, .2)),
+        #0d0a0d;
+    box-shadow: 0 0 35px rgba(110, 20, 40, .2);
+    filter: drop-shadow(0 0 3px #702330);
+}
+
+/* Inner pointed lancet arches */
+.hero::after {
+    content: "✦";
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    top: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(70vw, 550px);
+    height: 390px;
+    color: #a74450;
+    font-size: 25px;
+    text-align: center;
+    padding-top: 2px;
+    box-sizing: border-box;
+    border: 1px solid rgba(143, 52, 65, .75);
+    border-bottom: 0;
+    border-radius: 50% 50% 0 0 / 25% 25% 0 0;
+    background:
+        linear-gradient(45deg, transparent 48.8%, rgba(116, 36, 48, .55) 49.5%, transparent 50.2%),
+        linear-gradient(-45deg, transparent 48.8%, rgba(116, 36, 48, .55) 49.5%, transparent 50.2%);
+    clip-path: polygon(50% 0%, 57% 10%, 70% 20%, 82% 40%, 100% 100%, 0 100%, 18% 40%, 30% 20%, 43% 10%);
+}
+
+/* Keep the text legible above the ornament */
+.hero > * {
+    position: relative;
+}
+
+@media (max-width: 600px) {
+    .hero::before {
+        width: 94vw;
+        height: 350px;
+    }
+
+    .hero::after {
+        width: 86vw;
+        height: 320px;
+    }
+}
+
+/* Self-assessment page spacing and heading contrast */
+body:has(main section) main {
+    width: min(100% - 48px, 900px);
+    margin-inline: auto;
+    padding: 32px 0 56px;
+}
+
+body:has(main section) main section {
+    margin: 0 0 42px;
+    padding: 0 10px 26px;
+}
+
+body:has(main section) main h2 {
+    color: #b86b76;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(140, 43, 58, .55);
+    letter-spacing: .035em;
+}
+
+body:has(main section) main p {
+    color: #e4dcd6;
+    line-height: 1.9;
+    margin-bottom: 18px;
+}
+
+body:has(main section) footer {
+    padding: 28px 24px;
+}
+
+@media (max-width: 600px) {
+    body:has(main section) main {
+        width: calc(100% - 32px);
+        padding-top: 24px;
+    }
+
+    body:has(main section) main section {
+        padding-inline: 2px;
+    }
+}
+
+/* SELF-ASSESSMENT: pointed gothic iron fence, separate from homepage */
+.assessment-page .hero {
+    padding-top: 150px;
+}
+
+.assessment-page .hero::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 112px;
+    transform: none;
+    background-color: #171416;
+    background-image:
+        linear-gradient(
+            to bottom,
+            transparent 0 34%,
+            #625052 34% 38%,
+            #211c1e 38% 43%,
+            transparent 43% 67%,
+            #625052 67% 72%,
+            #211c1e 72% 77%,
+            transparent 77%
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent 0 24px,
+            #625052 24px 27px,
+            #211c1e 27px 29px,
+            transparent 29px 48px
+        );
+    clip-path: polygon(
+        0 30%, 2% 30%, 2.7% 5%, 4% 30%,
+        6% 30%, 6.7% 5%, 8% 30%,
+        10% 30%, 10.7% 5%, 12% 30%,
+        14% 30%, 14.7% 5%, 16% 30%,
+        18% 30%, 18.7% 5%, 20% 30%,
+        22% 30%, 22.7% 5%, 24% 30%,
+        26% 30%, 26.7% 5%, 28% 30%,
+        30% 30%, 30.7% 5%, 32% 30%,
+        34% 30%, 34.7% 5%, 36% 30%,
+        38% 30%, 38.7% 5%, 40% 30%,
+        42% 30%, 42.7% 5%, 44% 30%,
+        46% 30%, 46.7% 5%, 48% 30%,
+        50% 30%, 50.7% 5%, 52% 30%,
+        54% 30%, 54.7% 5%, 56% 30%,
+        58% 30%, 58.7% 5%, 60% 30%,
+        62% 30%, 62.7% 5%, 64% 30%,
+        66% 30%, 66.7% 5%, 68% 30%,
+        70% 30%, 70.7% 5%, 72% 30%,
+        74% 30%, 74.7% 5%, 76% 30%,
+        78% 30%, 78.7% 5%, 80% 30%,
+        82% 30%, 82.7% 5%, 84% 30%,
+        86% 30%, 86.7% 5%, 88% 30%,
+        90% 30%, 90.7% 5%, 92% 30%,
+        94% 30%, 94.7% 5%, 96% 30%,
+        98% 30%, 98.7% 5%, 100% 30%,
+        100% 100%, 0 100%
+    );
+}
+
+.assessment-page .hero::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 112px;
+    transform: none;
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 0 34%,
+            #9a777c 34% 36%,
+            transparent 36% 67%,
+            #9a777c 67% 69%,
+            transparent 69%
+        );
+    font-size: 0;
+}
+
+.assessment-page .hero > * {
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 600px) {
+    .assessment-page .hero {
+        padding-top: 125px;
+    }
+
+    .assessment-page .hero::before,
+    .assessment-page .hero::after {
+        height: 92px;
+    }
+}
+
+/* Assessment navigation: centered with comfortable side spacing */
+.assessment-page .hero nav {
+    width: min(100% - 64px, 760px);
+    box-sizing: border-box;
+    margin: 0 auto 34px;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px 30px;
+    position: relative;
+    left: auto;
+    right: auto;
+}
+
+.assessment-page .hero nav a {
+    display: inline-block;
+    padding: 8px 4px;
+}
+
+@media (max-width: 600px) {
+    .assessment-page .hero nav {
+        width: calc(100% - 36px);
+        gap: 8px 18px;
+        padding: 10px 12px;
+        margin-bottom: 26px;
+    }
+}
+
+/* Final assessment navigation alignment */
+.assessment-page .hero nav {
+    position: relative;
+    inset: auto;
+    transform: none;
+    float: none;
+    width: fit-content;
+    max-width: calc(100% - 48px);
+    box-sizing: border-box;
+    margin: 0 auto 34px;
+    padding: 10px 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px 28px;
+    text-align: center;
+}
+
+.assessment-page .hero nav a {
+    display: inline-block;
+    padding: 8px 5px;
+}
+
+@media (max-width: 600px) {
+    .assessment-page .hero nav {
+        max-width: calc(100% - 32px);
+        padding: 8px 12px;
+        gap: 8px 16px;
+        margin-bottom: 26px;
+    }
+}

@@ -1,0 +1,633 @@
+﻿/* TRAVLR GETAWAYS: UNIFIED LEGACY PAGE THEME
+   Designed to complement the Home and Travel pages.
+*/
+
+:root {
+  --ocean-bg: #071b22;
+  --ocean-panel: #10343b;
+  --ocean-panel-raised: #16434a;
+  --ocean-border: #28646a;
+  --glass: #79d6cb;
+  --glass-light: #c5e4df;
+  --sunset: #ffbd83;
+  --text: #e8f3f2;
+  --muted: #c5dddd;
+}
+
+html {
+  min-height: 100%;
+  background: var(--ocean-bg) !important;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: var(--ocean-bg) !important;
+  background-image: none !important;
+  color: var(--text) !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Remove legacy template backgrounds */
+#background,
+#page,
+#contents,
+#content,
+#body,
+#main,
+#main-content,
+#header,
+#footer,
+#navigation,
+#menu,
+#sidebar,
+#section,
+#article {
+  background-color: transparent !important;
+  background-image: none !important;
+  color: var(--text) !important;
+}
+
+/* Shared centered page width */
+#page {
+  width: min(1120px, 92%) !important;
+  max-width: 1120px;
+  margin: 0 auto !important;
+}
+
+/* Header and navigation */
+#header {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 22px 0 !important;
+  border-bottom: 1px solid var(--ocean-border);
+}
+
+#header h1,
+#header h2,
+#header .logo,
+#header .logo a {
+  color: var(--glass-light) !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  text-decoration: none !important;
+}
+
+#header ul,
+#navigation ul,
+#menu ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 22px;
+  padding: 0;
+  list-style: none;
+}
+
+#header li,
+#navigation li,
+#menu li {
+  list-style: none;
+}
+
+#header a,
+#navigation a,
+#menu a,
+#footer a {
+  color: var(--glass) !important;
+  text-decoration: none !important;
+  transition: color .2s ease;
+}
+
+#header a:hover,
+#navigation a:hover,
+#menu a:hover,
+#footer a:hover {
+  color: var(--sunset) !important;
+}
+
+/* Consistent content spacing */
+#contents,
+#content {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 36px 0 44px !important;
+}
+
+#contents h1,
+#content h1,
+h1 {
+  color: var(--glass-light) !important;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
+  letter-spacing: -.025em;
+}
+
+#contents h2,
+#content h2,
+h2 {
+  color: var(--glass-light) !important;
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  line-height: 1.25;
+}
+
+#contents h3,
+#content h3,
+h3,
+h4 {
+  color: var(--sunset) !important;
+  line-height: 1.35;
+}
+
+#contents p,
+#content p,
+#contents li,
+#content li,
+#contents dd,
+#contents dt,
+#contents label,
+#content label {
+  color: var(--muted) !important;
+}
+
+/* Eliminate old white wrapper backgrounds */
+#contents > div,
+#content > div,
+#contents section,
+#content section,
+#contents article,
+#content article,
+#contents .section,
+#content .section,
+#contents .content,
+#content .content,
+#contents .body,
+#content .body,
+#contents .main,
+#content .main {
+  background-color: transparent !important;
+  background-image: none !important;
+  color: var(--text) !important;
+}
+
+/* Reusable dark teal surfaces for actual content cards */
+#contents .box,
+#contents .article,
+#contents .news,
+#contents .details,
+#contents .contact,
+#contents .rooms,
+#contents .meals,
+#contents .sidebar,
+#contents .content-box,
+#contents .featured,
+#contents .featured-item,
+#content .box,
+#content .article,
+#content .news,
+#content .details,
+#content .contact,
+#content .rooms,
+#content .meals,
+#content .sidebar,
+#content .content-box,
+#content .featured,
+#content .featured-item {
+  box-sizing: border-box;
+  background: var(--ocean-panel) !important;
+  background-image: none !important;
+  color: var(--text) !important;
+  border: 1px solid var(--ocean-border);
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .16);
+}
+
+/* Card content remains transparent, never white */
+#contents .box *,
+#contents .article *,
+#contents .news *,
+#contents .details *,
+#contents .contact *,
+#contents .rooms *,
+#contents .meals *,
+#contents .sidebar *,
+#contents .content-box *,
+#contents .featured *,
+#contents .featured-item *,
+#content .box *,
+#content .article *,
+#content .news *,
+#content .details *,
+#content .contact *,
+#content .rooms *,
+#content .meals *,
+#content .sidebar *,
+#content .content-box *,
+#content .featured *,
+#content .featured-item * {
+  background-image: none !important;
+}
+
+#contents a,
+#content a,
+main a {
+  color: var(--glass) !important;
+}
+
+#contents a:hover,
+#content a:hover,
+main a:hover {
+  color: var(--sunset) !important;
+}
+
+/* Images and galleries */
+#contents img,
+#content img,
+main img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+#contents img a,
+#content img a {
+  background: transparent !important;
+}
+
+/* Forms */
+#contents input,
+#contents select,
+#contents textarea,
+#content input,
+#content select,
+#content textarea {
+  box-sizing: border-box;
+  max-width: 100%;
+  background: var(--ocean-panel) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--ocean-border) !important;
+  border-radius: 8px;
+  padding: 11px 13px;
+  font: inherit;
+}
+
+#contents input::placeholder,
+#contents textarea::placeholder,
+#content input::placeholder,
+#content textarea::placeholder {
+  color: #a8c8c5 !important;
+}
+
+#contents input[type="submit"],
+#contents input[type="button"],
+#content input[type="submit"],
+#content input[type="button"],
+button,
+.button,
+a.button {
+  background: var(--glass) !important;
+  color: #102b30 !important;
+  border: 1px solid var(--glass) !important;
+  border-radius: 9px;
+  padding: 11px 18px;
+  font-weight: 700;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+#contents input[type="submit"]:hover,
+#contents input[type="button"]:hover,
+#content input[type="submit"]:hover,
+#content input[type="button"]:hover,
+button:hover,
+.button:hover,
+a.button:hover {
+  background: var(--sunset) !important;
+  color: #302018 !important;
+  border-color: var(--sunset) !important;
+}
+
+/* Tables and separators */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--text) !important;
+}
+
+th,
+td {
+  padding: 12px;
+  border-bottom: 1px solid var(--ocean-border);
+  text-align: left;
+  color: var(--muted) !important;
+}
+
+th {
+  color: var(--glass-light) !important;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--ocean-border);
+}
+
+/* Footer */
+#footer {
+  box-sizing: border-box;
+  margin-top: 28px;
+  padding: 24px 0 !important;
+  border-top: 1px solid var(--ocean-border);
+  color: var(--muted) !important;
+  font-size: .92rem;
+}
+
+#footer p,
+#footer li {
+  color: var(--muted) !important;
+}
+
+/* Keyboard accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--sunset);
+  outline-offset: 3px;
+}
+
+/* Mobile layout */
+@media (max-width: 700px) {
+  #page {
+    width: 92% !important;
+  }
+
+  #header {
+    padding: 16px 0 !important;
+  }
+
+  #header ul,
+  #navigation ul,
+  #menu ul {
+    gap: 8px 14px;
+  }
+
+  #contents,
+  #content {
+    padding: 24px 0 30px !important;
+  }
+
+  #contents .box,
+  #contents .article,
+  #contents .news,
+  #contents .details,
+  #contents .contact,
+  #contents .rooms,
+  #contents .meals,
+  #contents .sidebar,
+  #contents .content-box,
+  #contents .featured,
+  #contents .featured-item,
+  #content .box,
+  #content .article,
+  #content .news,
+  #content .details,
+  #content .contact,
+  #content .rooms,
+  #content .meals,
+  #content .sidebar,
+  #content .content-box,
+  #content .featured,
+  #content .featured-item {
+    padding: 15px;
+  }
+}
+
+/* FINAL LEGACY PAGE THEME OVERRIDES */
+html,
+body {
+    background: #071b22 !important;
+    color: #e8f3f2 !important;
+}
+
+#background,
+#page,
+#contents,
+#contents .box,
+#contents .body,
+#contents .infos,
+#contents .sidebar,
+#contents .ads,
+#contents #news,
+#contents #contact,
+#footer,
+#footer #connect {
+    background-color: #0b252d !important;
+    background-image: none !important;
+    color: #e8f3f2 !important;
+    border-color: #28646a !important;
+}
+
+#contents .box {
+    background-color: #10343b !important;
+    border: 1px solid #28646a !important;
+    border-radius: 14px !important;
+    padding: 22px !important;
+    box-sizing: border-box !important;
+}
+
+#contents .body,
+#contents .infos,
+#contents .sidebar,
+#contents .ads,
+#contents #news,
+#contents #contact {
+    border-radius: 10px !important;
+    color: #e8f3f2 !important;
+}
+
+#contents h1,
+#contents h2,
+#contents h3,
+#contents h4,
+#contents p,
+#contents li,
+#contents label,
+#contents td,
+#contents th,
+#footer p {
+    color: #e8f3f2 !important;
+}
+
+#contents a,
+#footer a {
+    color: #79d6cb !important;
+}
+
+#contents a:hover,
+#footer a:hover {
+    color: #ffbd83 !important;
+}
+
+#contents table,
+#contents tbody,
+#contents tr,
+#contents td,
+#contents th {
+    background-color: transparent !important;
+    color: #e8f3f2 !important;
+    border-color: #28646a !important;
+}
+
+#contents input,
+#contents textarea,
+#contents select {
+    background-color: #071b22 !important;
+    color: #e8f3f2 !important;
+    border: 1px solid #45858a !important;
+    border-radius: 7px !important;
+    padding: 10px !important;
+    box-sizing: border-box !important;
+}
+
+#contents input[type="submit"],
+#contents input[type="button"],
+#contents button {
+    background: #16434a !important;
+    color: #c5e4df !important;
+    border: 1px solid #79d6cb !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+}
+
+#contents input[type="submit"]:hover,
+#contents input[type="button"]:hover,
+#contents button:hover {
+    background: #24545a !important;
+    color: #ffbd83 !important;
+}
+
+#navigation,
+#navigation ul,
+#navigation li {
+    background-color: transparent !important;
+}
+
+#header,
+#logo {
+    background-color: transparent !important;
+    color: #e8f3f2 !important;
+}
+
+#contents img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 700px) {
+    #page {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 0 12px !important;
+    }
+
+    #contents .box {
+        padding: 14px !important;
+    }
+}
+
+/* HOMEPAGE + TRAVEL LISTING: MATCH THE SHARED OCEAN THEME */
+body.home-page,
+body.travel-page {
+    background: #071b22 !important;
+    color: #e8f3f2 !important;
+}
+
+body.home-page #background,
+body.travel-page #background,
+body.home-page #page,
+body.travel-page #page {
+    background: #071b22 !important;
+    background-image: none !important;
+    color: #e8f3f2 !important;
+}
+
+body.home-page #header,
+body.travel-page #header,
+body.home-page #logo,
+body.travel-page #logo,
+body.home-page #navigation,
+body.travel-page #navigation,
+body.home-page #footer,
+body.travel-page #footer {
+    background-color: transparent !important;
+    color: #e8f3f2 !important;
+}
+
+body.home-page #contents,
+body.travel-page #contents,
+body.home-page #contents .box,
+body.travel-page #contents .box,
+body.home-page #contents .body,
+body.travel-page #contents .body {
+    background-color: #10343b !important;
+    background-image: none !important;
+    color: #e8f3f2 !important;
+    border-color: #28646a !important;
+}
+
+body.home-page #contents h1,
+body.home-page #contents h2,
+body.home-page #contents h3,
+body.home-page #contents p,
+body.home-page #contents li,
+body.travel-page #contents h1,
+body.travel-page #contents h2,
+body.travel-page #contents h3,
+body.travel-page #contents p,
+body.travel-page #contents li {
+    color: #e8f3f2 !important;
+}
+
+body.home-page #contents a,
+body.travel-page #contents a,
+body.home-page #navigation a,
+body.travel-page #navigation a,
+body.home-page #footer a,
+body.travel-page #footer a {
+    color: #79d6cb !important;
+}
+
+body.home-page #contents a:hover,
+body.travel-page #contents a:hover,
+body.home-page #navigation a:hover,
+body.travel-page #navigation a:hover,
+body.home-page #footer a:hover,
+body.travel-page #footer a:hover {
+    color: #ffbd83 !important;
+}
+
+body.home-page #contents input,
+body.home-page #contents textarea,
+body.home-page #contents select,
+body.travel-page #contents input,
+body.travel-page #contents textarea,
+body.travel-page #contents select {
+    background-color: #071b22 !important;
+    color: #e8f3f2 !important;
+    border-color: #45858a !important;
+}
+
+body.home-page #contents input[type="submit"],
+body.home-page #contents button,
+body.travel-page #contents input[type="submit"],
+body.travel-page #contents button {
+    background: #16434a !important;
+    color: #c5e4df !important;
+    border: 1px solid #79d6cb !important;
+}

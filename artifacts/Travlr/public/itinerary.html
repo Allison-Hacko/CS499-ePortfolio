@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Itinerary | Travlr Getaways</title>
+  <style>
+    body.gh-itinerary-page {
+      box-sizing: border-box;
+      max-width: 1080px;
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 54px 28px 80px;
+      background:
+        radial-gradient(ellipse at top right, rgba(49, 125, 130, .18), transparent 45%),
+        #071b22;
+      color: #e8f3f2;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    body.gh-itinerary-page h1 {
+      margin: 0 0 10px;
+      color: #f1f8f6;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      line-height: 1.15;
+      letter-spacing: -1.5px;
+    }
+
+    body.gh-itinerary-page h1::after {
+      content: "";
+      display: block;
+      width: 76px;
+      height: 4px;
+      margin-top: 18px;
+      border-radius: 10px;
+      background: linear-gradient(90deg, #79d6cb, #ffbd83);
+    }
+
+    body.gh-itinerary-page nav {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 28px 0 30px;
+      padding: 14px 16px;
+      border: 1px solid rgba(121, 214, 203, .18);
+      border-radius: 16px;
+      background: rgba(15, 43, 51, .82);
+    }
+
+    body.gh-itinerary-page nav a {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 9px;
+      color: #a9e9df;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background .2s ease, color .2s ease;
+    }
+
+    body.gh-itinerary-page nav a:hover,
+    body.gh-itinerary-page nav a:focus-visible {
+      background: rgba(121, 214, 203, .12);
+      color: #ffffff;
+    }
+
+    body.gh-itinerary-page button {
+      padding: 10px 16px;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      background: #79d6cb;
+      color: #071b22;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .2s ease, filter .2s ease;
+    }
+
+    body.gh-itinerary-page button:hover {
+      filter: brightness(1.08);
+      transform: translateY(-1px);
+    }
+
+    body.gh-itinerary-page button:focus-visible,
+    body.gh-itinerary-page a:focus-visible {
+      outline: 2px solid #ffbd83;
+      outline-offset: 3px;
+    }
+
+    body.gh-itinerary-page #logout-button {
+      margin-left: auto;
+      border-color: rgba(255, 189, 131, .35);
+      background: transparent;
+      color: #ffcfaa;
+    }
+
+    body.gh-itinerary-page #page-message {
+      margin: 0 0 24px;
+      padding: 18px 20px;
+      border: 1px solid rgba(121, 214, 203, .22);
+      border-radius: 14px;
+      background: rgba(15, 43, 51, .72);
+      color: #dcebe8;
+    }
+
+    body.gh-itinerary-page #page-message a {
+      display: inline-block;
+      margin-left: 5px;
+      color: #a9e9df;
+      font-weight: 700;
+      text-underline-offset: 4px;
+    }
+
+    body.gh-itinerary-page #bookings-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+      gap: 22px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    body.gh-itinerary-page .booking {
+      box-sizing: border-box;
+      min-width: 0;
+      margin: 0;
+      padding: 25px;
+      overflow-wrap: anywhere;
+      border: 1px solid rgba(121, 214, 203, .23);
+      border-radius: 18px;
+      background: linear-gradient(145deg, #12313a, #0b252d 75%);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, .16);
+      transition: border-color .2s ease, transform .2s ease;
+    }
+
+    body.gh-itinerary-page .booking:hover {
+      border-color: rgba(121, 214, 203, .55);
+      transform: translateY(-2px);
+    }
+
+    body.gh-itinerary-page .booking h2 {
+      margin: 0 0 18px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid rgba(121, 214, 203, .2);
+      color: #f1f8f6;
+      font-size: 1.4rem;
+      line-height: 1.35;
+    }
+
+    body.gh-itinerary-page .booking p {
+      margin: 10px 0;
+      color: #d3e3e1;
+      font-size: .97rem;
+    }
+
+    body.gh-itinerary-page .booking p:last-of-type {
+      margin-bottom: 20px;
+    }
+
+    body.gh-itinerary-page .booking button.cancel {
+      width: 100%;
+      margin-top: 8px;
+      border: 1px solid rgba(255, 140, 147, .35);
+      background: #572b35;
+      color: #ffe4e5;
+    }
+
+    body.gh-itinerary-page .booking button.cancel:hover {
+      background: #713541;
+    }
+
+    body.gh-itinerary-page button:disabled {
+      opacity: .6;
+      cursor: wait;
+      transform: none;
+    }
+
+    @media (max-width: 600px) {
+      body.gh-itinerary-page {
+        padding: 34px 16px 55px;
+      }
+
+      body.gh-itinerary-page nav {
+        align-items: stretch;
+        gap: 8px;
+      }
+
+      body.gh-itinerary-page nav a {
+        padding: 8px;
+      }
+
+      body.gh-itinerary-page #logout-button {
+        margin-left: 0;
+      }
+
+      body.gh-itinerary-page .booking {
+        padding: 20px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      body.gh-itinerary-page *,
+      body.gh-itinerary-page *::before,
+      body.gh-itinerary-page *::after {
+        transition: none !important;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="/stylesheets/getaway-pages.css">
+</head>
+<body class="gh-page gh-itinerary-page">
+  <h1>My Itinerary</h1>
+  <nav>
+    <a href="/travel">Browse trips</a>
+    <a href="/account.html">Account</a>
+    <button id="logout-button" type="button">Sign out</button>
+  </nav>
+  <p id="page-message" role="status" aria-live="polite">Loading your reservations...</p>
+  <main id="bookings-list"></main>
+
+  <script>
+  const message = document.getElementById('page-message');
+  const list = document.getElementById('bookings-list');
+
+  function showSignInMessage(text) {
+    message.textContent = text + ' ';
+    const link = document.createElement('a');
+    link.href = '/account.html';
+    link.textContent = 'Sign in or create an account';
+    message.appendChild(link);
+  }
+
+  function money(value) {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD'
+    }).format(value);
+  }
+
+  function dateText(value) {
+    if (!value) return 'Not available';
+    const date = new Date(value);
+    return Number.isNaN(date.getTime()) ? 'Not available' :
+      date.toLocaleDateString();
+  }
+
+  async function loadBookings() {
+    const token = localStorage.getItem('travlr_token');
+    if (!token) {
+      showSignInMessage('Sign in to view your itinerary.');
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/bookings', {
+        headers: {'Authorization': 'Bearer ' + token}
+      });
+
+      if (response.status === 401 || response.status === 403) {
+        localStorage.removeItem('travlr_token');
+        showSignInMessage('Your session has expired.');
+        return;
+      }
+
+      const bookings = await response.json();
+      if (!response.ok) {
+        message.textContent = bookings.message || 'Could not load reservations.';
+        return;
+      }
+
+      message.textContent = bookings.length
+        ? 'Here are your reservations.'
+        : 'You have no reservations yet. Browse trips to plan your getaway.';
+
+      if (!bookings.length) {
+        const link = document.createElement('a');
+        link.href = '/travel';
+        link.textContent = ' Browse available trips';
+        message.appendChild(link);
+        return;
+      }
+
+      list.replaceChildren();
+
+      bookings.forEach(function (booking) {
+        const card = document.createElement('section');
+        card.className = 'booking';
+
+        const heading = document.createElement('h2');
+        heading.textContent = booking.tripName || booking.tripCode || 'Trip reservation';
+        card.appendChild(heading);
+
+        const details = [
+          'Trip code: ' + booking.tripCode,
+          'Departure: ' + dateText(booking.tripStart),
+          'Travelers: ' + booking.travelers,
+          'Price per traveler: ' + money(booking.pricePerPerson),
+          'Total: ' + money(booking.totalPrice),
+          'Status: ' + booking.status,
+          'Reserved on: ' + dateText(booking.createdAt)
+        ];
+
+        details.forEach(function (detail) {
+          const paragraph = document.createElement('p');
+          paragraph.textContent = detail;
+          card.appendChild(paragraph);
+        });
+
+        if (booking.status !== 'cancelled') {
+          const cancelButton = document.createElement('button');
+          cancelButton.type = 'button';
+          cancelButton.className = 'cancel';
+          cancelButton.textContent = 'Cancel reservation';
+
+          cancelButton.addEventListener('click', async function () {
+            if (!window.confirm('Cancel this reservation?')) return;
+
+            cancelButton.disabled = true;
+            try {
+              const result = await fetch(
+                '/api/bookings/' + encodeURIComponent(booking._id) + '/cancel',
+                {
+                  method: 'PATCH',
+                  headers: {'Authorization': 'Bearer ' + token}
+                }
+              );
+
+              const data = await result.json();
+              if (!result.ok) {
+                window.alert(data.message || 'Unable to cancel reservation.');
+                cancelButton.disabled = false;
+                return;
+              }
+
+              await loadBookings();
+            } catch (error) {
+              window.alert('Unable to reach the server. Please try again.');
+              cancelButton.disabled = false;
+            }
+          });
+
+          card.appendChild(cancelButton);
+        }
+
+        list.appendChild(card);
+      });
+    } catch (error) {
+      message.textContent = 'Unable to reach the server. Please try again.';
+    }
+  }
+
+  document.getElementById('logout-button').addEventListener('click', function () {
+    localStorage.removeItem('travlr_token');
+    localStorage.removeItem('travlr_user');
+    window.location.href = '/account.html';
+  });
+
+  loadBookings();
+  </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+.login-page {
+  min-height: 65vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1rem;
+}
+
+.login-panel {
+  width: min(100%, 420px);
+  box-sizing: border-box;
+  padding: 2rem;
+  background: #ffffff;
+  color: #20232a;
+  border: 1px solid #d7dbe2;
+  border-radius: 16px;
+  box-shadow: 0 12px 35px rgba(20, 30, 50, 0.08);
+}
+
+.eyebrow {
+  color: #922c40;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.login-panel h1 {
+  color: #20232a;
+  margin-bottom: 0.5rem;
+}
+
+.intro {
+  color: #505866;
+  margin-bottom: 1.5rem;
+}
+
+.login-panel label {
+  display: block;
+  margin: 1rem 0 0.4rem;
+  color: #292d35;
+  font-weight: 650;
+}
+
+.login-panel input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.8rem;
+  color: #20232a;
+  background: #ffffff;
+  border: 1px solid #aeb5c0;
+  border-radius: 8px;
+  font: inherit;
+}
+
+.login-panel input:focus {
+  outline: 2px solid #9b3448;
+  outline-offset: 2px;
+}
+
+.login-panel button {
+  width: 100%;
+  margin: 1.4rem 0 1rem;
+  padding: 0.85rem;
+  border: 0;
+  border-radius: 8px;
+  background: #922c40;
+  color: #ffffff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.login-panel button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.login-panel a {
+  color: #922c40;
+}
+
+.error-message {
+  padding: 0.8rem;
+  margin: 1rem 0;
+  color: #8b1e2d;
+  background: #fff0f1;
+  border-radius: 8px;
+}

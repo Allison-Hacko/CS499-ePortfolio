@@ -1,0 +1,24 @@
+<article class="trip-card">
+  <div class="trip-image">
+    <img [src]="imageUrl" [alt]="trip.name" (error)="imageError = true" [hidden]="imageError">
+    @if (imageError || !trip.image) {
+      <div class="image-placeholder">? TRAVLR</div>
+    }
+    <span class="trip-code">{{ trip.code }}</span>
+  </div>
+
+  <div class="trip-details">
+    <p class="trip-resort">{{ trip.resort }}</p>
+    <h3>{{ trip.name }}</h3>
+    <p class="trip-description">{{ trip.description }}</p>
+
+    <div class="trip-meta">
+      <span>{{ trip.length }}</span>
+      <span>Departure: {{ trip.start | date:'mediumDate' }}</span>
+    </div>
+
+    <div class="trip-price">{{ trip.perPerson }} <small>/ person</small></div>
+  </div>
+</article>
+
+

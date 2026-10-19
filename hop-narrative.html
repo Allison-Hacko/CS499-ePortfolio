@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HOP Artifact Narrative | CS499</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <nav><a href="index.html">← Return to the ePortfolio</a></nav>
+</header>
+<main class="assessment-page">
+  <p class="eyebrow">ARTIFACT NARRATIVE / 01</p>
+  <h1>HOP: Health Objectives Progress</h1>
+  <p class="section-intro">Software design, secure development, validation, and testing.</p>
+
+  <h2>Original Artifact</h2>
+  <p>HOP is an Android application developed in Java with SQLite for managing health objectives and related personal information. The original project provided the foundation for tracking information through a mobile interface. I selected it because it gave me an opportunity to improve an existing application while considering how implementation decisions affect reliability, security, and the user experience.</p>
+
+  <h2>Enhancement and Rationale</h2>
+  <p>For the enhanced version, I focused on strengthening input validation, password-related functionality, error handling, and automated testing. I organized password operations into reusable utility and repository classes and added unit tests for important password-handling behavior. The work also emphasizes validating inputs and handling invalid data more carefully instead of relying on every input being correct.</p>
+  <p>These changes make the relevant logic easier to review and test. I was careful to distinguish the improvements from existing functionality: the original project already contained password-protection measures, including salted password hashing and parameterized database access. The enhancement builds on that foundation rather than claiming those existing safeguards as new work.</p>
+
+  <h2>Testing and Results</h2>
+  <p>The enhanced project successfully completed its Gradle unit-test task and debug APK build. The added tests provide repeatable checks for password-related behavior, while build verification confirms that the project compiles. These results do not establish that every feature has been tested on a physical device, so additional device-level testing remains useful.</p>
+
+  <h2>Challenges and Trade-Offs</h2>
+  <p>One consideration was improving validation and failure handling without unnecessarily changing the application's existing behavior. More defensive checks can prevent invalid data from moving further into the application, but they also need to provide understandable feedback. Automated tests improve confidence in the code, although they cannot replace full user-interface and device testing.</p>
+
+  <h2>Course Outcome Connections</h2>
+  <ul>
+    <li><strong>Outcome 2:</strong> Documentation and this narrative communicate the technical changes and their limitations.</li>
+    <li><strong>Outcome 4:</strong> Java, Android development tools, SQLite, and automated tests support a practical software solution.</li>
+    <li><strong>Outcome 5:</strong> Password handling, input validation, and defensive error handling demonstrate attention to protecting user data.</li>
+  </ul>
+
+  <h2>Reflection</h2>
+  <p>This project helped me look beyond whether an application simply runs. I learned to consider how reusable code, validation, and tests can make an existing application easier to maintain and safer to use. My next step would be broader device testing and additional tests for the application's user-facing workflows.</p>
+
+  <p class="text-link"><a href="artifacts/HOP/README.md">HOP documentation ↗</a></p>
+  <p class="text-link"><a href="artifacts/HOP/HOP-Original.zip">Download original HOP source ↗</a></p>
+  <p class="text-link"><a href="artifacts/HOP/HOP-Enhanced.zip">Download enhanced HOP source ↗</a></p>
+</main>
+</body>
+</html>

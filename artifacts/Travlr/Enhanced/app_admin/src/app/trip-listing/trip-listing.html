@@ -1,0 +1,124 @@
+﻿<section class="trip-management">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">TRAVEL MANAGEMENT</p>
+      <h1>Manage Your Trips</h1>
+      <p>Add destinations, update details, and manage your trip listings.</p>
+    </div>
+
+    @if (!showForm) {
+      <button type="button" class="primary-button" (click)="openAddForm()">
+        + Add New Trip
+      </button>
+    }
+  </div>
+
+  @if (successMessage) {
+    <div class="message success-message" role="status">{{ successMessage }}</div>
+  }
+
+  @if (errorMessage) {
+    <div class="message error-message" role="alert">{{ errorMessage }}</div>
+  }
+
+  @if (showForm) {
+    <section class="trip-form-panel">
+      <div class="form-heading">
+        <div>
+          <p class="eyebrow">{{ editingCode ? 'EDIT LISTING' : 'NEW LISTING' }}</p>
+          <h2>{{ editingCode ? 'Edit Trip' : 'Add a Trip' }}</h2>
+        </div>
+        <button type="button" class="secondary-button" (click)="cancelForm()">Cancel</button>
+      </div>
+
+      <form (ngSubmit)="saveTrip()">
+        <div class="form-grid">
+          <label>
+            Trip Code
+            <input name="code" [(ngModel)]="newTrip.code" required
+              [readonly]="!!editingCode" placeholder="e.g. trip101" />
+          </label>
+
+          <label>
+            Trip Name
+            <input name="name" [(ngModel)]="newTrip.name" required
+              placeholder="Trip name" />
+          </label>
+
+          <label>
+            Length
+            <input name="length" [(ngModel)]="newTrip.length" required
+              placeholder="e.g. 7 nights" />
+          </label>
+
+          <label>
+            Start Date
+            <input type="date" name="start" [(ngModel)]="newTrip.start" required />
+          </label>
+
+          <label>
+            Resort
+            <input name="resort" [(ngModel)]="newTrip.resort" required
+              placeholder="Resort or destination" />
+          </label>
+
+          <label>
+            Price Per Person
+            <input name="perPerson" [(ngModel)]="newTrip.perPerson" required
+              placeholder="e.g. $1,299" />
+          </label>
+
+          <label class="full-width">
+            Image Path or URL
+            <input name="image" [(ngModel)]="newTrip.image" required
+              placeholder="Image URL or existing image path" />
+          </label>
+
+          <label class="full-width">
+            Description
+            <textarea name="description" [(ngModel)]="newTrip.description"
+              required rows="4" placeholder="Describe this trip..."></textarea>
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="secondary-button" (click)="cancelForm()">Cancel</button>
+          <button type="submit" class="primary-button" [disabled]="saving">
+            {{ saving ? 'Saving...' : (editingCode ? 'Save Changes' : 'Add Trip') }}
+          </button>
+        </div>
+      </form>
+    </section>
+  }
+
+  <div class="list-heading">
+    <div>
+      <p class="eyebrow">YOUR DATABASE</p>
+      <h2>Available Trips</h2>
+    </div>
+    <span class="trip-count">{{ trips.length }} trips</span>
+  </div>
+
+  @if (trips.length === 0) {
+    <div class="empty-state">
+      <h3>No trips found</h3>
+      <p>Add a trip to get started, or check that your server is running.</p>
+    </div>
+  } @else {
+    <div class="trip-grid">
+      @for (trip of trips; track trip.code) {
+        <article class="managed-trip">
+          <app-trip-card [trip]="trip"></app-trip-card>
+          <div class="trip-actions">
+            <button type="button" class="secondary-button" (click)="editTrip(trip)">
+              Edit Trip
+            </button>
+            <button type="button" class="delete-button" (click)="deleteTrip(trip)">
+              Delete
+            </button>
+          </div>
+        </article>
+      }
+    </div>
+  }
+</section>

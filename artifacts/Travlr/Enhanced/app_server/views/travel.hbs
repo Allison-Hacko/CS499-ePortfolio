@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Explore available destinations and find your next getaway with Travlr Getaways.">
+    <title>Explore Getaways | Travlr Getaways</title>
+    <link rel="stylesheet" href="/stylesheets/getaway-pages.css">
+</head>
+<body class="getaway-travel">
+    <header class="gh-header">
+        <a class="gh-brand" href="/" aria-label="Travlr Getaways home">
+            <img src="/images/logo.png" alt="Travlr Getaways" width="200">
+        </a>
+        <nav class="gh-nav" aria-label="Main navigation">
+            <a href="/">Home</a>
+            <a class="is-active" aria-current="page" href="/travel">Travel</a>
+            <a href="/rooms.html">Rooms</a>
+            <a href="/meals.html">Meals</a>
+            <a href="/news.html">News</a>
+            <a href="/about.html">About</a>
+            <a href="/contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="gt-banner">
+            <div class="gt-banner-content">
+                <span class="gh-kicker">YOUR NEXT CHAPTER</span>
+                <h1>Somewhere<br><span>worth going.</span></h1>
+                <p>Explore our available getaways and find a destination that feels like your kind of escape.</p>
+                <div class="gt-banner-meta">
+                    <span>EXPLORE</span><span class="gt-meta-dot"></span>
+                    <span>DISCOVER</span><span class="gt-meta-dot"></span>
+                    <span>GET AWAY</span>
+                </div>
+            </div>
+            <div class="gt-banner-art" aria-hidden="true">
+                <div class="gt-art-sun"></div>
+                <div class="gt-art-ring gt-art-ring-one"></div>
+                <div class="gt-art-ring gt-art-ring-two"></div>
+                <div class="gt-art-wave gt-art-wave-one"></div>
+                <div class="gt-art-wave gt-art-wave-two"></div>
+                <div class="gt-art-wave gt-art-wave-three"></div>
+                <span class="gt-art-label">FIND YOUR HORIZON</span>
+            </div>
+        </section>
+
+        <section class="gt-results-section">
+            <div class="gt-section-heading">
+                <div>
+                    <span class="gh-kicker">THE GETAWAY COLLECTION</span>
+                    <h2>Explore destinations.</h2>
+                    <p>Find the right trip for your plans, your pace, and your budget.</p>
+                </div>
+                <a class="gh-inline-link" href="/travel">View all trips <span aria-hidden="true">&rarr;</span></a>
+            </div>
+
+            <form class="gt-search" action="/travel" method="GET">
+                <div class="gt-search-field gt-search-destination">
+                    <label for="search">DESTINATION OR RESORT</label>
+                    <input id="search" type="search" name="search" value="{{searchTerm}}" placeholder="Where would you like to go?" autocomplete="off">
+                </div>
+                <div class="gt-search-field">
+                    <label for="minPrice">MINIMUM PRICE</label>
+                    <input id="minPrice" type="number" name="minPrice" min="0" step="any" value="{{minPrice}}" placeholder="No minimum">
+                </div>
+                <div class="gt-search-field">
+                    <label for="maxPrice">MAXIMUM PRICE</label>
+                    <input id="maxPrice" type="number" name="maxPrice" min="0" step="any" value="{{maxPrice}}" placeholder="No maximum">
+                </div>
+                <div class="gt-search-actions">
+                    <button class="gh-button gt-search-button" type="submit">Find Trips <span aria-hidden="true">&rarr;</span></button>
+                    <a class="gt-clear" href="/travel">Clear filters</a>
+                </div>
+            </form>
+
+            {{#if noResults}}
+                <div class="gt-empty">
+                    <span class="gh-kicker">NO MATCHES JUST YET</span>
+                    <h2>Let's try another direction.</h2>
+                    <p>We couldn't find destinations matching those filters. Try a different search or widen your price range.</p>
+                    <a class="gh-button" href="/travel">View All Destinations <span aria-hidden="true">&rarr;</span></a>
+                </div>
+            {{else}}
+                <ul class="gt-trip-grid">
+                    {{#each trips}}
+                        <li class="gt-trip-card">
+                            <a class="gt-trip-image-link" href="/travel/{{code}}" aria-label="View {{name}} trip details">
+                                <img class="gt-trip-image" src="{{imageUrl}}" alt="{{name}}" loading="lazy">
+                                <span class="gt-trip-image-tag">TRIP {{code}}</span>
+                            </a>
+                            <div class="gt-trip-content">
+                                <span class="gt-trip-kicker">YOUR NEXT ADVENTURE</span>
+                                <h3><a href="/travel/{{code}}">{{name}}</a></h3>
+                                <p class="gt-trip-description">{{description}}</p>
+                                <div class="gt-trip-facts">
+                                    <div><span>RESORT</span><strong>{{resort}}</strong></div>
+                                    <div><span>DURATION</span><strong>{{length}}</strong></div>
+                                    <div><span>DEPARTURE</span><strong>{{startDate}}</strong></div>
+                                </div>
+                                <div class="gt-trip-bottom">
+                                    <div class="gt-trip-price">
+                                        <span>PRICE PER PERSON</span>
+                                        <strong>{{perPerson}}</strong>
+                                    </div>
+                                    <a class="gt-trip-link" href="/travel/{{code}}" aria-label="View details for {{name}}">View Trip <span aria-hidden="true">&rarr;</span></a>
+                                </div>
+                            </div>
+                        </li>
+                    {{else}}
+                        <li class="gt-empty gt-empty-list">
+                            <span class="gh-kicker">MORE ADVENTURES AHEAD</span>
+                            <h2>No destinations available right now.</h2>
+                            <p>Please check back later for available getaways.</p>
+                        </li>
+                    {{/each}}
+                </ul>
+            {{/if}}
+        </section>
+
+        <section class="gt-bottom-cta">
+            <div>
+                <span class="gh-kicker">STILL DECIDING?</span>
+                <h2>Your next great story starts somewhere.</h2>
+                <p>Explore the rest of Travlr Getaways to help plan your escape.</p>
+            </div>
+            <a class="gh-button gh-button-outline" href="/about.html">About Travlr <span aria-hidden="true">&rarr;</span></a>
+        </section>
+    </main>
+
+    <footer class="gh-footer">
+        <a class="gh-footer-brand" href="/">Travlr Getaways<span>.</span></a>
+        <p>Discover new places. Make lasting memories.</p>
+        <nav aria-label="Footer navigation">
+            <a href="/">Home</a>
+            <a href="/travel">Travel</a>
+            <a href="/rooms.html">Rooms</a>
+            <a href="/meals.html">Meals</a>
+            <a href="/news.html">News</a>
+            <a href="/about.html">About</a>
+            <a href="/contact.html">Contact</a>
+        </nav>
+        <small>&copy; 2026 Travlr Getaways. All rights reserved.</small>
+    </footer>
+</body>
+</html>
